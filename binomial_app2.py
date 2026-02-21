@@ -24,7 +24,7 @@ if st.button("🔄 リセット（n=10, p=1/2 に戻す）"):
     st.session_state.started = False
 
 # --- パラメータ入力 ---
-st.session_state.n = st.slider("標本数 n（試行回数）", 1, 100, st.session_state.n)
+st.session_state.n = st.slider("標本数 n（試行回数）", 1, 2000, st.session_state.n)
 st.session_state.d = st.slider("成功確率 p = 1 / d の d（分母）", 1, 20, st.session_state.d)
 
 n = st.session_state.n
@@ -86,4 +86,5 @@ expected = mu
 variance = sigma**2
 
 st.write(f"### 📌 期待値 E[X] = {expected:.3f}")
+
 st.write(f"### 📌 分散 Var[X] = {variance:.3f}")

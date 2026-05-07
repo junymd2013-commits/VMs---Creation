@@ -5,7 +5,7 @@ from math import comb
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-st.set_page_config(page_title="2項分布 B(n, p) 可視化", layout="centered")
+st.set_page_config(page_title="二項分布 B(n, p) 可視化", layout="centered")
 
 st.title("🎲 2項分布 B(n, p) と正規分布の比較")
 
@@ -52,16 +52,16 @@ df = pd.DataFrame({
 })
 
 # --- 表の表示 ---
-st.subheader("📊 2項分布の確率表")
+st.subheader("📊 二項分布の確率表")
 st.dataframe(df.style.format({"P(X=k)": "{:.5f}"}), height=400)
 
-# --- グラフ（2項分布 + 正規分布） ---
-st.subheader("📈 2項分布と正規分布の比較")
+# --- グラフ（二項分布 + 正規分布） ---
+st.subheader("📈 二項分布と正規分布の比較")
 
 fig, ax = plt.subplots(figsize=(8, 4))
 
 # 2項分布（棒グラフ）
-ax.bar(k_values, probabilities, color="skyblue", label="2項分布 B(n,p)")
+ax.bar(k_values, probabilities, color="skyblue", label="B(n,p)")
 
 # 正規分布の近似
 mu = n * p
@@ -73,10 +73,10 @@ normal_pdf = norm.pdf(x, mu, sigma)
 # 棒グラフのスケールに合わせて正規分布を調整
 normal_pdf_scaled = normal_pdf * (1 / np.sum(normal_pdf)) * np.sum(probabilities)
 
-ax.plot(x, normal_pdf_scaled, "r--", linewidth=2, label="正規近似 N(np, np(1-p))")
+ax.plot(x, normal_pdf_scaled, "r--", linewidth=2, label="N(np, np(1-p))")
 
-ax.set_xlabel("k（成功回数）")
-ax.set_ylabel("確率")
+ax.set_xlabel("kaisuu")
+ax.set_ylabel("kakuritu")
 ax.legend()
 
 st.pyplot(fig)
